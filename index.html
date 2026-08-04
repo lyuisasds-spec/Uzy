@@ -874,61 +874,61 @@
     JAVASCRIPT - FUNCIONALIDADES
     ============================================================ -->
     <script>
-        // ============================================================
-        // FUNCIÓN DE DESCARGA DIRECTA - PIXELDRAIN
-        // ============================================================
-        function downloadUzy() {
-            const directUrl = 'https://pixeldrain.com/api/file/NUuxBCjC';
-            const link = document.createElement('a');
-            link.href = directUrl;
-            link.download = 'Uzy.zip';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            showToast('✅ Descarga iniciada!');
-        }
+// ============================================================
+// FUNCIÓN DE DESCARGA DIRECTA - GOOGLE DRIVE
+// ============================================================
+function downloadUzy() {
+    const directUrl = 'https://drive.google.com/uc?export=download&id=1LdLJavY49Fs2gMXRieVv2DL3xb1nptkF';
+    const link = document.createElement('a');
+    link.href = directUrl;
+    link.download = 'Uzy.zip';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    showToast('✅ Descarga iniciada!');
+}
 
-        // ============================================================
-        // FUNCIÓN TOAST PARA MENSAJES
-        // ============================================================
-        function showToast(message) {
-            const existing = document.querySelector('.toast-message');
-            if (existing) existing.remove();
+// ============================================================
+// FUNCIÓN TOAST PARA MENSAJES
+// ============================================================
+function showToast(message) {
+    const existing = document.querySelector('.toast-message');
+    if (existing) existing.remove();
 
-            const toast = document.createElement('div');
-            toast.className = 'toast-message';
-            toast.style.cssText = `
-                position: fixed;
-                bottom: 100px;
-                left: 50%;
-                transform: translateX(-50%);
-                background: rgba(6,10,22,0.95);
-                backdrop-filter: blur(20px);
-                border: 1px solid #00b4ff;
-                border-radius: 16px;
-                padding: 14px 32px;
-                color: #fff;
-                font-family: 'Rajdhani', sans-serif;
-                font-size: 15px;
-                letter-spacing: 1px;
-                z-index: 100000;
-                box-shadow: 0 8px 40px rgba(0,180,255,0.3);
-                animation: toastIn 0.4s ease, toastOut 0.4s ease 2.5s forwards;
-            `;
-            toast.textContent = message;
-            document.body.appendChild(toast);
+    const toast = document.createElement('div');
+    toast.className = 'toast-message';
+    toast.style.cssText = `
+        position: fixed;
+        bottom: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(6,10,22,0.95);
+        backdrop-filter: blur(20px);
+        border: 1px solid #00b4ff;
+        border-radius: 16px;
+        padding: 14px 32px;
+        color: #fff;
+        font-family: 'Rajdhani', sans-serif;
+        font-size: 15px;
+        letter-spacing: 1px;
+        z-index: 100000;
+        box-shadow: 0 8px 40px rgba(0,180,255,0.3);
+        animation: toastIn 0.4s ease, toastOut 0.4s ease 2.5s forwards;
+    `;
+    toast.textContent = message;
+    document.body.appendChild(toast);
 
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes toastIn { 0% { opacity:0; transform:translateX(-50%) translateY(20px); } 100% { opacity:1; transform:translateX(-50%) translateY(0); } }
-                @keyframes toastOut { 0% { opacity:1; transform:translateX(-50%) translateY(0); } 100% { opacity:0; transform:translateX(-50%) translateY(-20px); } }
-            `;
-            document.head.appendChild(style);
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes toastIn { 0% { opacity:0; transform:translateX(-50%) translateY(20px); } 100% { opacity:1; transform:translateX(-50%) translateY(0); } }
+        @keyframes toastOut { 0% { opacity:1; transform:translateX(-50%) translateY(0); } 100% { opacity:0; transform:translateX(-50%) translateY(-20px); } }
+    `;
+    document.head.appendChild(style);
 
-            setTimeout(() => {
-                if (toast.parentNode) toast.remove();
-            }, 3000);
-        }
+    setTimeout(() => {
+        if (toast.parentNode) toast.remove();
+    }, 3000);
+}
 
         // ============================================================
         // INTRO ANIMATION - U-Z-Y
