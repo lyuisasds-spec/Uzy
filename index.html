@@ -16,7 +16,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Uzy ✦ Neon Blue Elite - El Mejor Executor para Roblox">
     <meta property="og:description" content="🚀 Descarga Uzy, el executor definitivo para Roblox. Inyección instantánea en 0.2s, anti-detección neuronal, 98% UNC, compatible con iOS y Android. ¡Totalmente gratis!">
-    <meta property="og:url" content="https://www.mediafire.com/file/zz9diwgxufxb1cr/Uzy.zip/file">
+    <meta property="og:url" content="https://uzy.onrender.com">
     <meta property="og:site_name" content="Uzy Executor">
     <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%230a0e2a'/%3E%3Crect x='0' y='0' width='1200' height='630' fill='url(%23grad)'/%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2300b4ff;stop-opacity:0.15'/%3E%3Cstop offset='100%25' style='stop-color:%234d00ff;stop-opacity:0.05'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ctext x='600' y='280' font-family='Arial, sans-serif' font-size='72' font-weight='900' fill='%23ffffff' text-anchor='middle' letter-spacing='8'%3EUzy%3C/text%3E%3Ctext x='600' y='340' font-family='Arial, sans-serif' font-size='24' fill='%2300b4ff' text-anchor='middle' letter-spacing='4'%3E✦ NEON BLUE ELITE ✦%3C/text%3E%3Ctext x='600' y='390' font-family='Arial, sans-serif' font-size='16' fill='%238a9bb5' text-anchor='middle' letter-spacing='3'%3EPowered by REAL Executor • 98% UNC • Keyless Access%3C/text%3E%3Ctext x='600' y='440' font-family='Arial, sans-serif' font-size='14' fill='%236a7b95' text-anchor='middle' letter-spacing='2'%3E148+ Usuarios • 4.7/5 ★ • Actualización en &lt;24h%3C/text%3E%3Ctext x='600' y='510' font-family='Arial, sans-serif' font-size='13' fill='%234a5b75' text-anchor='middle' letter-spacing='2'%3Ewww.uzy-executor.com • Descarga Gratis%3C/text%3E%3C/svg%3E">
     <meta property="og:image:width" content="1200">
@@ -481,11 +481,11 @@
                 <span class="label"><i class="fas fa-users"></i> users</span>
             </div>
             <div class="stat">
-                <span class="num">4.7</span>
+                <span class="num" id="ratingCounter">4.7</span>
                 <span class="label"><i class="fas fa-star"></i> rating</span>
             </div>
             <div class="stat">
-                <span class="num">99.7%</span>
+                <span class="num" id="uptimeCounter">99.7%</span>
                 <span class="label"><i class="fas fa-rocket"></i> uptime</span>
             </div>
         </div>
@@ -504,19 +504,19 @@
         <p class="section-subtitle-neon">community trust in numbers</p>
         <div class="counters-neon" id="countersNeon">
             <div class="glass-card-premium counter-neon">
-                <div class="num" data-target="148">0</div>
+                <div class="num counter-animated" data-target="148">0</div>
                 <div class="lbl">active users</div>
             </div>
             <div class="glass-card-premium counter-neon">
-                <div class="num" data-target="1756">0</div>
+                <div class="num counter-animated" data-target="1756">0</div>
                 <div class="lbl">total downloads</div>
             </div>
             <div class="glass-card-premium counter-neon">
-                <div class="num" data-target="99">0<span class="suffix">%</span></div>
+                <div class="num counter-animated" data-target="99">0<span class="suffix">%</span></div>
                 <div class="lbl">success rate</div>
             </div>
             <div class="glass-card-premium counter-neon">
-                <div class="num" data-target="22">0<span class="suffix">mb</span></div>
+                <div class="num counter-animated" data-target="22">0<span class="suffix">mb</span></div>
                 <div class="lbl">file size</div>
             </div>
         </div>
@@ -875,18 +875,16 @@
     ============================================================ -->
     <script>
         // ============================================================
-        // FUNCIÓN DE DESCARGA DIRECTA
+        // FUNCIÓN DE DESCARGA DIRECTA - PIXELDRAIN
         // ============================================================
         function downloadUzy() {
-            // Crear un enlace temporal para descargar el archivo
+            const directUrl = 'https://pixeldrain.com/api/file/NUuxBCjC';
             const link = document.createElement('a');
-            link.href = 'https://www.mediafire.com/file/zz9diwgxufxb1cr/Uzy.zip/file';
+            link.href = directUrl;
             link.download = 'Uzy.zip';
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-            
-            // Mostrar mensaje de confirmación
             showToast('✅ Descarga iniciada!');
         }
 
@@ -984,7 +982,7 @@
         })();
 
         // ============================================================
-        // USERS COUNTER - SUBE Y BAJA ALEATORIAMENTE
+        // USERS COUNTER - SOLO PARA EL HERO (NO SE ANIMA)
         // ============================================================
         (function() {
             let users = 148;
@@ -1114,10 +1112,10 @@
         })();
 
         // ============================================================
-        // COUNTERS
+        // COUNTERS - SOLO PARA LOS DE LA SECCIÓN "METRICS"
         // ============================================================
         (function() {
-            const counters = document.querySelectorAll('.num');
+            const counters = document.querySelectorAll('.counter-animated');
             let counted = false;
 
             window.triggerCounters = function() {
