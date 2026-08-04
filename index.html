@@ -481,11 +481,11 @@
                 <span class="label"><i class="fas fa-users"></i> users</span>
             </div>
             <div class="stat">
-                <span class="num">4.7</span>
+                <span class="num" id="ratingCounter">4.7</span>
                 <span class="label"><i class="fas fa-star"></i> rating</span>
             </div>
             <div class="stat">
-                <span class="num">99.7%</span>
+                <span class="num" id="uptimeCounter">99.7%</span>
                 <span class="label"><i class="fas fa-rocket"></i> uptime</span>
             </div>
         </div>
@@ -926,16 +926,23 @@
         })();
 
         // ============================================================
-        // USERS COUNTER - BAJA ALEATORIAMENTE
+        // USERS COUNTER - SUBE Y BAJA ALEATORIAMENTE
         // ============================================================
         (function() {
             let users = 148;
             const userCounter = document.getElementById('userCounter');
 
             function updateUsers() {
-                // Restar entre 1 y 5 usuarios aleatoriamente
-                const decrease = Math.floor(Math.random() * 5) + 1;
-                users = Math.max(0, users - decrease);
+                // Decidir si sube o baja (50% probabilidad cada uno)
+                const change = Math.floor(Math.random() * 5) + 1; // 1 a 5
+                const sube = Math.random() < 0.5; // true = sube, false = baja
+                
+                if (sube) {
+                    users = users + change;
+                } else {
+                    users = Math.max(0, users - change);
+                }
+                
                 userCounter.textContent = users;
 
                 // Programar la próxima actualización entre 5 y 15 segundos
